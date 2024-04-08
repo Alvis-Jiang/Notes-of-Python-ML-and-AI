@@ -99,6 +99,7 @@ Standardization (transform continuous data to appear normally distributed)
 `knn.fit(X_train_scaled, y_train)`
 
 `# Score the model on the test data`
+
 `print(knn.score(X_test_scaled, y_test))`
 
 
