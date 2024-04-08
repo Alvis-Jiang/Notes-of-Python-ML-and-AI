@@ -68,17 +68,23 @@ Standardization (transform continuous data to appear normally distributed)
 
 `# Ash, Alcalinity of ash, and Magnesiumcolumns in the wine dataset are all on different scales
 `# Print out the variance of the Proline column`
+
 `print(wine['Proline'].var())`
+
 `# Import StandardScaler`
+
 `from sklearn.preprocessing import StandardScaler`
 
 `# Create the scaler`
+
 `scaler = StandardScaler()`
 
 `# Subset the DataFrame you want to scale`
+
 `wine_subset = wine[['Ash', 'Alcalinity of ash', 'Magnesium']]`
 
 `# Apply the scaler to wine_subset`
+
 `wine_subset_scaled = scaler.fit_transform(wine_subset)`
 
 ## KNN on scaled data
@@ -86,16 +92,20 @@ Standardization (transform continuous data to appear normally distributed)
 `# Using the transform() method we can use the same mean and variance as it is calculated from our training data to transform our test data. Thus, the parameters learned by our model using the training data will help us to transform our test data.`
 
 `# X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)`
+
 `knn = KNeighborsClassifier()`
 
 `# Instantiate a StandardScaler`
+
 `scaler = StandardScaler()`
 
 `# Scale the training and test features`
+
 `X_train_scaled = scaler.fit_transform(X_train)`
 `X_test_scaled = scaler.transform(X_test)`
 
 `# Fit the k-nearest neighbors model to the training data`
+
 `knn.fit(X_train_scaled, y_train)`
 
 `# Score the model on the test data`
