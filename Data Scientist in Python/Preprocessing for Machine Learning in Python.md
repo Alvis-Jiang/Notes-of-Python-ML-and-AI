@@ -15,27 +15,34 @@
 
 ####  Converting a column type
 `# check datafram info`
+
 `volunteer.info()`
 
 `# Convert the hits column to type int`
+
 `volunteer["hits"] = volunteer["hits"].astype("int")`
 
 ## Training and test sets
 
 `# count frequency of elements in a column`
+
 `volunteer['category_desc'].value_counts()`
 
 ### Stratified sampling
 `# Create a DataFrame with all columns except category_desc`
+
 `X = volunteer.drop(['category_desc'], axis=1)`
 
 `# Create a category_desc labels dataset`
+
 `y = volunteer[['category_desc']]`
 
 `# Use stratified sampling to split up the dataset according to the y dataset`
+
 `X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)`
 
 `# Print the category_desc counts from y_train`
+
 `print(y_train['category_desc'].value_counts())`
 
 Standardization (transform continuous data to appear normally distributed)
@@ -44,23 +51,30 @@ Standardization (transform continuous data to appear normally distributed)
 *  Using non-normal training data can induce bias 
 ## Practice: k-nearest neighbors model(knn) on non-scaled data
 `# Split the dataset into training and test sets`
+
 `X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)`
+
 `knn = KNeighborsClassifier()`
   
 `# Fit the knn model to the training data -- x_tain and y_train`
+
 `knn.fit(X_train, y_train)`
 
 `# Score the model on the test data-- predict y from the X-test`
+
 `print(knn.score(X_test, y_test))`
 
 ## Log normalization 
 `# Print out the variance of the Proline column`
+
 `print(wine['Proline'].var())`
 
 `# Apply the log normalization function to the Proline column`
+
 `wine['Proline_log'] = np.log(wine['Proline'])`
 
 `# Check the variance of the normalized Proline column````
+
 `print(wine['Proline_log'].var())`
 
 
