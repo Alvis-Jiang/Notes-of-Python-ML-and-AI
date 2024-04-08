@@ -73,7 +73,7 @@ Standardization (transform continuous data to appear normally distributed)
 
 `wine['Proline_log'] = np.log(wine['Proline'])`
 
-`# Check the variance of the normalized Proline column````
+`# Check the variance of the normalized Proline column`
 
 `print(wine['Proline_log'].var())`
 
@@ -103,6 +103,7 @@ Standardization (transform continuous data to appear normally distributed)
 
 ## KNN on scaled data
 `# fit_transform() is used on the training data so that we can scale the training data and also learn the scaling parameters of that data. Here, the model built will learn the mean and variance of the features of the training set`
+
 `# Using the transform() method we can use the same mean and variance as it is calculated from our training data to transform our test data. Thus, the parameters learned by our model using the training data will help us to transform our test data.`
 
 `# X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)`
