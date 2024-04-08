@@ -1,10 +1,10 @@
 `# Exploring missing data`
 `df.isna().sum()`
 
- # `# Dropping columns form datafram` --`Drop the Latitude and Longitude columns from volunteer`
+ `# Dropping columns form datafram` --`Drop the Latitude and Longitude columns from volunteer`
  `volunteer_cols = volunteer.drop(['Latitude', 'Longitude'], axis=1)`
 
- # `# Dropping missing data --Drop rows with missing category_desc values from volunteer_cols
+ `# Dropping missing data --Drop rows with missing category_desc values from volunteer_cols
 `volunteer_subset = volunteer_cols.dropna(subset = ['category_desc'])`
 
 ## Data types are important 
