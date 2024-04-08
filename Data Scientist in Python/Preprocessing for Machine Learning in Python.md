@@ -106,7 +106,7 @@ Standardization (transform continuous data to appear normally distributed)
 
 `# Using the transform() method we can use the same mean and variance as it is calculated from our training data to transform our test data. Thus, the parameters learned by our model using the training data will help us to transform our test data.`
 
-`# X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)`
+`X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)`
 
 `knn = KNeighborsClassifier()`
 
