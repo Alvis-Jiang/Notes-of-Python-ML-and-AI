@@ -146,4 +146,72 @@ Standardization (transform continuous data to appear normally distributed)
 # Feature engineering(Creation of new features from existing ones)
 
 ### Encode categorical variable
+## Encode categorical variable -- scikit-learn
+`# Set up the LabelEncoder object`
+`from sklearn.preprocessing import LabelEncoder`
+`enc = LabelEncoder()`
 
+`# Apply the encoding to the "column1" column`
+`df['column1_enc'] = enc.fit_transform(df['column1'])`
+
+## Encode categorical variable -- one-hot
+`# Transform the category_desc column in the df`
+`category_enc = pd.get_dummies(df["category_desc"])`
+
+`# Take a look at the encoded columns`
+`print(category_enc.head())`
+
+## Engineering numerical features
+
+### Aggregating numerical features
+
+`# Use .loc to create a mean column in the dafaframe df`
+`# .loc() attribute accesses a group of rows and columns by label(s) or a boolean array`
+`df["mean"] = df.loc[:, :].mean(axis=1)`
+
+  
+### Extracting datetime components -- pd.to_datetime()
+`# First, convert string column to date column`
+`volunteer["start_date_converted"] = pd.to_datetime(volunteer['start_date_date'])`
+
+`# Extract just the month from the converted column`
+`volunteer["start_date_month"] = volunteer['start_date_converted'].dt.month`
+
+`# Take a look at the converted and new month columns`
+`print(volunteer[['start_date_converted', 'start_date_month']].head())`
+
+### Engineering text features
+#### Extracting string patterns--Regular expression:
+- \\d :  grab digits
+- + : grab as many as possible
+- \\. :   grab the decimal point
+- \\d+(right side): grab digits on the right side of decimal points 
+- example data:
+  Length 
+0    0.8 miles 
+1    1.0 mile 
+2     0.75 miles 
+3     0.5 miles 
+4     0.5 miles 
+
+`# Write a pattern to extract numbers and decimals`
+
+`# use group(0) for the result of re.search() -- returns the complete matched subgroup by default or a tuple of matched subgroups depending on the number of arguments`
+
+`def return_mileage(length):`
+
+    `# Search the text for matches`
+    
+    `mile = re.search("\d+\.\d+", length)`
+    
+    `# If a value is returned, use group(0) to return the found value`
+    
+    `if mile is not None:`
+    
+        `return float(mile.group(0))`
+
+`# Apply the function to the Length column and take a look at both columns`
+
+`hiking["Length_num"] = hiking["Length"].apply(return_mileage)`
+
+`print(hiking[["Length", "Length_num"]].head())`
