@@ -1,5 +1,4 @@
-`# Exploring missing data`
-
+`# Exploring missing data`\d
 `df.isna().sum()`
 
  `# Dropping columns form datafram` --`Drop the Latitude and Longitude columns from volunteer`
