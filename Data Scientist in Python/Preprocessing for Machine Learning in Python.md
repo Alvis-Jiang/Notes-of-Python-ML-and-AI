@@ -19,9 +19,11 @@
 
 `volunteer.info()`
 
+
 `# Convert the hits column to type int`
 
 `volunteer["hits"] = volunteer["hits"].astype("int")`
+
 
 ## Training and test sets
 
@@ -29,18 +31,22 @@
 
 `volunteer['category_desc'].value_counts()`
 
+
 ### Stratified sampling
 `# Create a DataFrame with all columns except category_desc`
 
 `X = volunteer.drop(['category_desc'], axis=1)`
 
+
 `# Create a category_desc labels dataset`
 
 `y = volunteer[['category_desc']]`
 
+
 `# Use stratified sampling to split up the dataset according to the y dataset`
 
 `X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)`
+
 
 `# Print the category_desc counts from y_train`
 
@@ -56,10 +62,12 @@ Standardization (transform continuous data to appear normally distributed)
 `X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)`
 
 `knn = KNeighborsClassifier()`
+
   
 `# Fit the knn model to the training data -- x_tain and y_train`
 
 `knn.fit(X_train, y_train)`
+
 
 `# Score the model on the test data-- predict y from the X-test`
 
@@ -70,9 +78,11 @@ Standardization (transform continuous data to appear normally distributed)
 
 `print(wine['Proline'].var())`
 
+
 `# Apply the log normalization function to the Proline column`
 
 `wine['Proline_log'] = np.log(wine['Proline'])`
+
 
 `# Check the variance of the normalized Proline column`
 
@@ -86,17 +96,21 @@ Standardization (transform continuous data to appear normally distributed)
 
 `print(wine['Proline'].var())`
 
+
 `# Import StandardScaler`
 
 `from sklearn.preprocessing import StandardScaler`
+
 
 `# Create the scaler`
 
 `scaler = StandardScaler()`
 
+
 `# Subset the DataFrame you want to scale`
 
 `wine_subset = wine[['Ash', 'Alcalinity of ash', 'Magnesium']]`
+
 
 `# Apply the scaler to wine_subset`
 
