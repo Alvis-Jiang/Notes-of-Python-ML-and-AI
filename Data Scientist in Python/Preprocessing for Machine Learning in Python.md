@@ -216,3 +216,38 @@ Standardization (transform continuous data to appear normally distributed)
 `hiking["Length_num"] = hiking["Length"].apply(return_mileage)`
 
 `print(hiking[["Length", "Length_num"]].head())`
+
+
+#### Vectorizing text (**a methodology in NLP to map words or phrases from vocabulary to a corresponding vector of real numbers which used to find word predictions, word similarities/semantics**.) 
+
+#### [bag-of-words](https://en.wikipedia.org/wiki/Bag-of-words_model) (BoW): A BoW vector has the length of the entire vocabulary — that is, the set of unique words in the corpus. The vector’s values represent the frequency with which each word appears in a given text passage.
+
+####  [TF-IDF](https://haystack.deepset.ai/components/retriever#tf-idf): Give higher relevance scores to words that occur in fewer documents within the corpus.
+
+```
+# Take the column1 text
+column1_text = df['column1']
+
+# Create the vectorizer method
+tfidf_vec = TfidfVectorizer()
+  
+# Transform the text into tf-idf vectors
+text_tfidf = tfidf_vec.fit_transform(column1_text)
+```
+
+
+# Feature selection
+
+## Remove redundant features: 
+- remove noisy features
+- remove correlated features: features move together directionally
+- remove duplicated features
+#### Checking for correlated features-- Pearson correlation coefficients
+```
+df.corr()
+```
+
+
+#### Selecting features using text vectors
+Exploring text vectors
+
