@@ -1,225 +1,186 @@
 # Importing flat files from the web
 
 ## Saving web files with urlretrieve()
+```
 # Import package
-
-`from urllib.request import urlretrieve`
+from urllib.request import urlretrieve
 
 # Import pandas
-
-`import pandas as pd`
+import pandas as pd
 
 # Assign url of file: url
-
-`url = "https://assets.datacamp.com/production/course_1606/datasets/winequality-red.csv"`
+url = "https://assets.datacamp.com/production/course_1606/datasets/winequality-red.csv"
 
 # Save file locally
-
-`urlretrieve(url, "winequality-red.csv")`
+urlretrieve(url, "winequality-red.csv")
 
 # Read file into a DataFrame and print its head
-
-`df = pd.read_csv('winequality-red.csv', sep=';')`
-
-`print(df.head())`
+df = pd.read_csv('winequality-red.csv', sep=';')
+print(df.head())
+```
 
 ## Opening and reading flat files from the web
-`# Import packages`
+```
+# Import packages
+import matplotlib.pyplot as plt
+import pandas as pd
 
-`import matplotlib.pyplot as plt`
+# Assign url of file: url
+url = "https://assets.datacamp.com/production/course_1606/datasets/winequality-red.csv"
 
-`import pandas as pd`
-
-`# Assign url of file: url`
-
-`url = "https://assets.datacamp.com/production/course_1606/datasets/winequality-red.csv"`
-
-`# Read file into a DataFrame: df`
-
-`df = pd.read_csv(url, sep = ";")`
+# Read file into a DataFrame: df
+df = pd.read_csv(url, sep = ";")
+```
 
 
 
 # HTTP requests to import files from the web
-##  HTTP requests in Python using urllib()
-`# Import packages`
+## HTTP requests in Python using urllib()
+```
+# Import packages
+from urllib.request import urlopen, Request
 
-`from urllib.request import urlopen, Request`
+# Specify the url
+url = "https://campus.datacamp.com/courses/1606/4135?ex=2"
 
-`# Specify the url`
+# This packages the request: request
+request = Request(url)
 
-`url = "https://campus.datacamp.com/courses/1606/4135?ex=2"`
+# Sends the request and catches the response: response
+response = urlopen(request)
 
-`# This packages the request: request`
+# Extract the response: html
+html = response.read()
 
-`request = Request(url)`
-
-`# Sends the request and catches the response: response`
-
-`response = urlopen(request)`
-
-`# Extract the response: html`
-
-`html = response.read()`
-
-`# Be polite and close the response!`
-
-`response.close()`
-
+# Be polite and close the response!
+response.close()
+```
 
 ## Performing HTTP requests in Python using requests
-`# Import package`
+```
+# Import package
+import requests
 
-`import requests`
+# Specify the url
+url = "http://www.datacamp.com/teach/documentation"
 
-`# Specify the url`
+# Packages the request, send the request and catch the response: r
+r = requests.get(url)
 
-`url = "http://www.datacamp.com/teach/documentation"`
+# Extract the response: text
+text = **r.text**
 
-`# Packages the request, send the request and catch the response: r`
-
-`r = requests.get(url)`
-
-`# Extract the response: text`
-
-`text = **r.text**`
-
-`# Print the html`
-
-`print(text)`
+# Print the html
+print(text)
+```
 
 
 ## Scraping the Web in Python -- Beautiful Soup
-`# Import packages`
+```
+# Import packages
+import requests
+from bs4 import BeautifulSoup
 
-`import requests`
+# Specify url: url
+url = "https://www.python.org/~guido/"
 
-`from bs4 import BeautifulSoup`
+# Package the request, send the request and catch the response: r
+r = requests.get(url)
 
-`# Specify url: url`
+# Extracts the response as html: html_doc
+html_doc = r.text
 
-`url = "https://www.python.org/~guido/"`
+# Create a BeautifulSoup object from the HTML: soup
+soup = BeautifulSoup(html_doc)
 
-`# Package the request, send the request and catch the response: r`
+# Prettify the BeautifulSoup object: pretty_soup
+pretty_soup = soup.prettify()
 
-`r = requests.get(url)`
+# Get the title of Guido's webpage: guido_title
+guido_title = soup.title
+```
 
-`# Extracts the response as html: html_doc`
-
-`html_doc = r.text`
-
-`# Create a BeautifulSoup object from the HTML: soup`
-
-`soup = BeautifulSoup(html_doc)`
-
-`# Prettify the BeautifulSoup object: pretty_soup`
-
-`pretty_soup = soup.prettify()`
-
-`# Get the title of Guido's webpage: guido_title`
-
-`guido_title = soup.title`
-
-### # Getting the text
-`# Get Guido's text: guido_text`
-
-`guido_text = soup.get_text()`
+### Getting the text
+```
+# Get Guido's text: guido_text
+guido_text = soup.get_text()
+```
 
 
-### # Getting the hyperlinks
-`# Find all 'a' tags (<a>, which define hyperlinks): a_tags`
+### Getting the hyperlinks
+```
+# Find all 'a' tags (<a>, which define hyperlinks): a_tags
+a_tags = soup.find_all('a')
 
-`a_tags = soup.find_all('a')`
+# Print the URLs to the shell
+for link in a_tags:
+	print(link.get('href'))
+	
+```
 
-`# Print the URLs to the shell`
-
-`for link in a_tags:`
-
-	`print(link.get('href'))```
 
 # JASON and APIs
 ##  Loading and exploring a JSON
-`# Load JSON: json_data`
+```
+# Load JSON: json_data
+with open("a_movie.json") as json_file:
+    json_data = json.loads(json_file)
 
-`with open("a_movie.json") as json_file:`
+# Print each key-value pair in json_data
+for k in json_data.keys():
+    print(k + ': ', json_data[k])
 
-    `json_data = json.loads(json_file)`
-
-`# Print each key-value pair in json_data`
-
-`for k in json_data.keys():`
-
-    `print(k + ': ', json_data[k])`
-
+```
 ## JSON–from the web to Python
-`# Import requests package`
+```
+# Import requests package
+import requests
 
-`import requests`
-
-`# Assign URL to variable: url`
-
-`query_string = "apikey=72bc447a&t=the+social+network"`
-
-`url = "http://www.omdbapi.com"`
-
-`url_final = url + "/?" + query_string`
+# Assign URL to variable: url
+query_string = "apikey=72bc447a&t=the+social+network"
+url = "http://www.omdbapi.com"
+url_final = url + "/?" + query_string
   
-`# Package the request, send the request and catch the response: r(JSON)`
+# Package the request, send the request and catch the response: r(JSON)
+r = requests.get(url_final)
 
-`r = requests.get(url_final)`
-
-`# Decode the JSON data into a dictionary: json_data`
-
-`json_data = r.json()`
+# Decode the JSON data into a dictionary: json_data
+json_data = r.json()
+```
 
 
 ## The Twitter API and Authentication
 
 ### Streaming tweets
-#### # credentials: 
-
+```
+# credentials: 
 consumer_key, consumer_secret, access_token and access_token_secret
-
-#### # Stream variable:
-
+# Stream variable:
 track = ['xxx', 'xxxx']
 
-`# Store credentials in relevant variables`
+# Store credentials in relevant variables
+consumer_key = "nZ6EA0FxZ293SxGNg8g8aP0HM"
+consumer_secret = "fJGEodwe3KiKUnsYJC3VRndj7jevVvXbK2D5EiJ2nehafRgA6i"
+access_token = "1092294848-aHN7DcRP9B4VMTQIhwqOYiB14YkW92fFO8k8EPy"
+access_token_secret = "X4dHmhPfaksHcQ7SCbmZa2oYBBVSD2g8uIHXsp5CTaksx"
 
-`consumer_key = "nZ6EA0FxZ293SxGNg8g8aP0HM"`
+# Create your Stream object with credentials
+stream = tweepy.Stream(consumer_key, consumer_secret, access_token, access_token_secret)
 
-`consumer_secret = "fJGEodwe3KiKUnsYJC3VRndj7jevVvXbK2D5EiJ2nehafRgA6i"`
-
-`access_token = "1092294848-aHN7DcRP9B4VMTQIhwqOYiB14YkW92fFO8k8EPy"`
-
-`access_token_secret = "X4dHmhPfaksHcQ7SCbmZa2oYBBVSD2g8uIHXsp5CTaksx"`
-
-`# Create your Stream object with credentials`
-
-`stream = tweepy.Stream(consumer_key, consumer_secret, access_token, access_token_secret)`
-
-`# Filter your Stream variable`
-
-`stream.filter(track = ["clinton", "trump", "sanders", "cruz"])`
-
+# Filter your Stream variable
+stream.filter(track = ["clinton", "trump", "sanders", "cruz"])
+```
 ### Twitter data to DataFrame
 
-`# Import package`
+```
+# Import package
+import pandas as pd
 
-`import pandas as pd`
+# Build DataFrame of tweet texts and languages
+# First argument is a dictionary(tweets_data), the second argument is a list of keys you wish to have as columns
+df = pd.DataFrame(tweets_data, columns=['text', 'lang'])
 
-`# Build DataFrame of tweet texts and languages`
-
-`# First argument is a dictionary(tweets_data), the second argument is a list of keys you wish to have as columns`
-
-`df = pd.DataFrame(tweets_data, columns=['text', 'lang'])`
-
-`# iterate through df`
-
-`for index, row in df.iterrows():`
+# iterate through df
+for index, row in df.iterrows():
+```
 `
-
-
-
-
-
