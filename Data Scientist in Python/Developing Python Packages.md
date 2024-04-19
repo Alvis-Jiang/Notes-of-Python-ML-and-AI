@@ -200,5 +200,44 @@ test_get_ends()
 # It runs these functions and shows output
 ```
 ![1713019277379](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/6f885005-3a60-4d99-82fc-f081095c3345)
+![1713019299424](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/8e48e8d9-7d58-4269-b178-310dc5ec33c2)
+![1713019347128](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/6b1b5d21-6a9f-44a4-8bc9-141a77e80f43)
+
+## test packages with different environment
+
+-- Install all allowed python version in the setup.py
+-- Run **tox**
+![1713020638443](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/0ded02d2-79e1-4288-9497-e5b840674329)
+
+```
+# content og tox.ini
+# Headings are surrounded by squarebrackets [...]
+# To test Python version X.Y add pyXY to envlist
+# The versions of Python you test need to beinstalled already
+# The commands parameter lists the terminalcommands tox will run
+# The commands list can be any commandswhich will run from the terminal, like ls, cd, echo etc
+
+[tox]
+envlist = py27, py35, py36, py37
+
+[testenv]
+deps = pytest
+commands = 
+	pytest 
+	echo "run more commands" 
+
+```
+
+## Keeping your package stylish -- flake8
+
+```
+flake8 features.py
+
+--ignire
+# # noqa:E222
+```
+![1713238288444](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/ca6c70ec-8a72-4e08-93bc-18a349dc1617)
+
+
 
 
