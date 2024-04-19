@@ -4,13 +4,14 @@
 - #### Subpackage -- A smaller package inside a package e.g. `numpy.random`
 - #### Module - A Python file indise a package whcih store the package code 
 - #### Directory tree of a package
-![[1712955270407.png]]
+![1712955270407](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/785d47f6-64e2-46a4-9bbb-65c3f21fe485)
+
 
 # Documentation  
 
 ## help() function
+![Pasted image 20240412165708](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/1b165606-a7f4-4b4d-8649-c594e51a04bb)
 
-![[Pasted image 20240412165708.png]]
 
 ## Function documentation
 ```
