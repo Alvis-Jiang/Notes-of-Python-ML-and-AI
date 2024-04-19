@@ -122,3 +122,83 @@ setup(
 )
 # version number = (major number) . (minor number) . (patch number)
 ```
+## Dependency
+-- check dependency and package version from the package history or release notes
+![1713016387572 1](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/fd6cfa20-1d5b-497d-a04e-41906bb3a10d)
+```
+# Call setup function
+setup( 
+	...
+	install_requires=[
+		'pandas>=1.0', 
+		'scipy==1.1', 
+		'matplotlib>=2.2.1,<3']
+)
+# version number = (major number) . (minor number) . (patch number)
+```
+##  Including licences and writing READMEs
+### README format
+```
+Markdown (commonmark)
+-- Contained in README.md file
+-- Simpler
+-- Used in this course and in the wild
+
+# reStructuredText
+-- Contained in README.rst file
+-- More complex
+-- Also common in the wild
+```
+
+### MANIFEST.in
+-- Lists all the extra files to include in your package distribution.
+![1713017713669](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/9c47ba6a-0b9f-4bac-8055-c141cf4310ec)
+
+## Publish the package
+When upload the package, it is a package distribution:
+* Distribution package: a bundled version of my package which is ready to install
+* Source distribution: a distribution package which is mostly my source code
+* Wheel distribution: a distribution package which has been processed to make it dater to install
+
+### Build distributions
+```
+# sdist = source distribution
+# bdist_wheel = wheel distribution
+python setup.py sdist bdist_wheel
+```
+![1713018392102](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/8dac7b66-b772-4473-94cc-bb277d38d1de)
+
+### upload packages
+
+```
+# upload diostribution to PyPI
+twine upload dist/*
+
+# Upload distribution to TestPyPI
+twine upload -r testpypi dist/*
+```
+
+# Test packages
+## Write tests
+
+```
+# function for test
+def get_ends(x):
+"""Get the first and last element in a list"""
+	return x[0], x[-1]
+
+# test
+def test_get_ends():
+	assert get_ends([1,5,39,0]) == (1,0)
+	assert get_ends(['n','e','r','d']) == ('n','d')
+test_get_ends()
+
+# Running pytest 
+# pytest looks inside the test directory
+# It looks for modules like test_modulename.py
+# It looks for functions like test_functionname()
+# It runs these functions and shows output
+```
+![1713019277379](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/6f885005-3a60-4d99-82fc-f081095c3345)
+
+
