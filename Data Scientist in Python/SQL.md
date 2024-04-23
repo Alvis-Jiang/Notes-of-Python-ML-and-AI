@@ -7,7 +7,8 @@
 * refer to a collective group or be plural
 * be singular
 #### - Fields are set at database creation; there is no limit to the number of records:
-![[WeChat Screenshot_20240421225923.png]]
+![WeChat Screenshot_20240421225923](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/501100e0-0010-40aa-b6bf-93ae98ef566f)
+
 * be lowercase
 * have no spaces
 * be singular
@@ -36,9 +37,11 @@ SELECT name AS first_name, year_hired
 FROM employees;
 
 ```
-![[1713756423505 1.png]]
+![1713756423505 1](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/c7f38bbd-67f0-403c-aefc-bc8426006c11)
+
 #### Select distinct records
-![[1713756477615.png]]
+![1713756477615](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/7e662507-7c42-427a-aa20-136c9ca2aa55)
+
 #### View (a virtual table that is the result of a saved SQL SELECT statement)
 - When accessed, views automatically update in response to updates in the underlying data
 ```
@@ -95,10 +98,12 @@ LIMIT 10;
 ```
 
 #### - Comma errors
-![[1713831556276.png]]
+![1713831556276](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/5987ad67-6e2f-4be0-897d-37a4837bea5c)
+
 
 #### - Keyword errors
-![[1713831749198.png]]
+![1713831749198](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/9f8cb6e5-92db-452b-a28b-b3d6acab134c)
+
 
 ### SQL style (Holywell's style guide: https://www.sqlstyle.guide/)
 - Formatting is not required, but lack of formatting  can cause issues 
@@ -173,9 +178,11 @@ WHERE (another_field_name1 =1994 OR another_field_name2 =1995)
 - #### LIKE(Used to search for a pattern in a field)
 % match zero, one, or many characters
 _ match a single character
-![[1713835002151.png]]
+![1713835002151](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/b4dc554a-92e7-4cba-9e1b-d4f2935d2b25)
+
 - #### NOT LIKE
-- ![[1713835065221.png]]
+![1713835065221](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/ea3fe32b-7ab3-4027-929d-8fbfe8447ec9)
+
 #### - WHERE, IN
 ```
 SELECT field_name
