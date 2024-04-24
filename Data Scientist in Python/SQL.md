@@ -206,3 +206,140 @@ SELECT field_name
 FROM Table_name
 WHERE another_field_name IS NOT NULL;
 ```
+
+# Summarizing data 
+## Aggregate functions:
+### - AVG(), SUM() -- Numerical fields only
+```
+SELECT AVG(field_name)
+FROM table_name;
+
+SELECT SUM(field_name)
+FROM table_name;
+```
+
+### - MIN(), MAX(), COUNT() -- Various data types
+
+```
+SELECT MIN(field_name) AS MIN_field_name
+FROM table_name;
+
+SELECT MAX(field_name)
+FROM table_name;
+```
+
+## Summarizing subsets (with WHERE)
+
+```
+SELECT AVG(field_name)
+FROM table_name
+WHERE another_field_name = 2024;
+
+SELECT SUM(field_name)
+FROM table_name;
+```
+
+### ROUND(number_to_round, decimal_places)
+```
+SELECT ROUND(AVG(field_name)) AS average
+FROM table_name
+WHERE another_field_name = 2024;
+
+-- second parameter as 0
+SELECT ROUND(AVG(field_name, 0)) AS average
+FROM table_name
+WHERE another_field_name = 2024;
+
+-- second parameter as negative(decimal place parameter)
+SELECT ROUND(AVG(field_name), -5) AS avg_budget
+FROM table_name
+WHERE another_field_name >=2010;
+```
+
+## Aliasing and arithmetic
+
+### +, - , * and  /
+```
+SELECT (4 + 3)
+|7|
+
+SELECT (4 * 3)
+|12|
+
+SELECT (4 - 3)
+|1|
+
+SELECT (4 / 3)
+|1|
+
+SELECT (4.0 / 3.0)
+|1.333333|
+
+--example
+SELECT (field_name1 - field_name2)
+FROM table_name;
+```
+#### difference between aggregate function and arithmetic
+
+![1713922184030](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/10d7060f-7d62-413d-afca-33563fad3c57)
+
+
+
+## Sorting results
+
+### - ORDER BY, DESC(Text values are ordered alphabetically by default) 
+
+```
+SELECT field_name1, field_name2
+FROM table_name
+ORDER BY field_name2 DESC, field_name2 DES;
+```
+
+## Grouping data
+### - GROUP BY single filed name
+```
+SELECT certification, COUNT(title) AS title_count
+FROM films
+GROUP BY certification;
+|certification|title_count|
+|-------------|-----------|
+|Unrated      |62 |
+|M            |5 |
+|G            |112 |
+|NC-17        |7 |...
+```
+
+### - GROUP BY multiple fields
+```
+SELECT certification, language, COUNT(title) AS title_count
+FROM films
+GROUP BY certification, language;
+|certification|language |title_count|
+|-------------|---------|-----------|
+|null         |null     |5 |
+|Unrated      |Japanese |2 |
+|R            |Norwegian|2 |...
+```
+
+### - GROUP BY with ORDER BY
+```
+SELECT certification, COUNT(title) AS title_count
+FROM films
+GROUP BY certification
+ORDER BY title_count DESC;
+
+|certification|title_count|
+|-------------|-----------|
+|R            |2118 |
+|PG-13        |1462 |
+...
+```
+
+### - Filtering grouped data
+WHERE filters individual records, HAVING filters grouped records
+```
+SELECT release_year
+FROM films
+GROUPBY release_year
+HAVINGAVG(duration) >120;
+```
