@@ -343,3 +343,65 @@ FROM films
 GROUPBY release_year
 HAVINGAVG(duration) >120;
 ```
+
+## Joining data
+### - inner join (look for records in both tables which match a given field)
+
+![1714002253654](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/ada663a3-00a1-45de-a24e-1a8b92f72437)
+
+```
+-- the table.column_name format must be used when selecting columns taht exist in both tables to avoid a SQL error.
+
+SELECT left_table.id, left_Val, right_val
+FROM right_table
+INNER JOIN left_table
+ON right_table.id = left_table.id;
+
+--Aliasing tables (Aliases can be used in the table.column_name syntax in SELECT and ON clauses)
+
+SELECT P1.id, left_Val, right_val
+FROM right_table AS P1
+INNER JOIN left_table AS P2
+ON P1.id = P2.id;
+
+--Using USING
+
+SELECT left_table.id, left_Val, right_val
+FROM right_table AS P1
+INNER JOIN left_table AS P2
+USING(id);
+```
+
+### Defining relationships
+#### - One-to-many relationships
+![1714004071376](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/b7e062af-acae-42a7-a616-4d9c4e6aa5c7)
+
+
+#### - One-to-one relationships
+![1714004098818](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/32345559-9c25-4910-aece-19b0cc62db7e)
+
+
+#### - Many-to-many relationships
+![1714004185583](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/a1361d3d-399c-4245-a735-025075a7794c)
+
+
+### Multiple joins
+
+#### - Joins on joins
+```
+SELECT *
+FROM left_table
+INNERJOIN right_table
+ON left_table.id = right_table.id
+INNER JOIN another_table
+ON left_table.id = another_table.id;
+```
+
+#### - Joining on multiple keys
+```
+SELECT *
+FROM left_table
+INNER JOIN right_table
+ON left_table.id1 = right_table.id1
+	AND left_table.id2 = right_table.id2
+```
