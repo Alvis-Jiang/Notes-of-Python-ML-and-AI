@@ -1,5 +1,6 @@
 ### - repository
-![[1714265010613.png]]
+![1714265010613](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/2b3b587b-ff90-420a-a7a0-e35be1f6f5f2)
+
 
 ### - GIT workflow
 -  Modify a file 
@@ -42,7 +43,8 @@ git diff report.md
 git diff -r HEAD report.md
 ```
 
-![[1714266291766.png]]
+![1714266291766](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/7ecd3e97-958f-4e09-b5e5-93a372d973d9)
+
 - comparing multiple files
 ```
 # Compare all staged files with the last committed versions
@@ -51,8 +53,10 @@ git diff -r HEAD
 
 ## Storing data with Git
 
-![[1714266968355.png]]
-![[1714267029676.png]]
+![1714266968355](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/3852ab9c-1a11-4d30-ab09-17eaa57dd0e2)
+
+![1714267029676](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/72112f7f-bbcf-4293-9c80-b0ebddc36f02)
+
 ```
 # Git log
 # find a particular commit 
@@ -76,7 +80,8 @@ git show HEAD~2
 
 ```
 
-![[1714267832537.png]]
+![1714267832537](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/4d7254ce-3ddf-49b1-9bc5-36404cca3955)
+
 
 ```
 # Compare changes between two commits
@@ -84,12 +89,14 @@ git diff 35f4b4d 186398f
 
 git diff HEAD~3 HEAD~2
 ```
-![[1714267912733.png]]
+![1714267912733](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/08849800-5f3c-4920-81b7-b014b93c5869)
+
 ```
 # Show line-by-line changes and associated metadata
 git annotate report.md
 ```
-![[1714267967066.png]]
+![1714267967066](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/c6b45866-f838-45d9-9cd8-0f226f5b2e82)
+
 
 ### - Undoing changes before committing
 ```
