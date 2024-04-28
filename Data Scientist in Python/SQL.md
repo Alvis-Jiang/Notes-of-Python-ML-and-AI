@@ -7,7 +7,8 @@
 * refer to a collective group or be plural
 * be singular
 #### - Fields are set at database creation; there is no limit to the number of records:
-![[WeChat Screenshot_20240421225923.png]]
+![WeChat Screenshot_20240421225923](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/7599e1aa-9776-42eb-bc5e-0048c372b3eb)
+
 * be lowercase
 * have no spaces
 * be singular
@@ -36,9 +37,11 @@ SELECT name AS first_name, year_hired
 FROM employees;
 
 ```
-![[1713756423505 1.png]]
+![1713756423505 1](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/d826f663-5ca4-45dc-9f44-d490dcbbaf83)
+
 #### Select distinct records
-![[1713756477615.png]]
+![1713756477615](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/08b1cbef-7c53-4b00-8cdc-ef3ea402e39b)
+
 #### View (a virtual table that is the result of a saved SQL SELECT statement)
 - When accessed, views automatically update in response to updates in the underlying data
 ```
@@ -95,10 +98,12 @@ LIMIT 10;
 ```
 
 #### - Comma errors
-![[1713831556276.png]]
+![1713831556276](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/3d3dd226-90f8-4035-b158-6f36f607dea8)
+
 
 #### - Keyword errors
-![[1713831749198.png]]
+![1713831749198](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/99a59809-726f-4086-b097-764483ffe9c4)
+
 
 ### SQL style (Holywell's style guide: https://www.sqlstyle.guide/)
 - Formatting is not required, but lack of formatting  can cause issues 
@@ -173,9 +178,11 @@ WHERE (another_field_name1 =1994 OR another_field_name2 =1995)
 - #### LIKE(Used to search for a pattern in a field)
 % match zero, one, or many characters
 _ match a single character
-![[1713835002151.png]]
+![1713835002151](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/dab36e73-66a1-4869-88d9-828cab751ecc)
+
 - #### NOT LIKE
-- ![[1713835065221.png]]
+![1713835065221](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/9b406e12-9480-488b-8182-c67170309816)
+
 #### - WHERE, IN
 ```
 SELECT field_name
@@ -274,7 +281,8 @@ FROM table_name;
 ```
 #### difference between aggregate function and arithmetic
 
-![[1713922184030.png]]
+![1713922184030](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/bba4b358-6269-47e9-acbd-6e0fd60703ae)
+
 
 
 ## Sorting results
@@ -339,7 +347,8 @@ HAVINGAVG(duration) >120;
 ## Joining data
 ### - inner join (look for records in both tables which match a given field)
 
-![[1714002253654.png]]
+![1714002253654](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/2683863c-fbdb-4998-8377-cac0f5a92651)
+
 ```
 -- the table.column_name format must be used when selecting columns taht exist in both tables to avoid a SQL error.
 
@@ -365,13 +374,16 @@ USING(id);
 
 ### Defining relationships
 #### - One-to-many relationships
-![[1714004071376.png]]
+![1714004071376](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/bf3b9741-38ac-4c6e-b79b-47a689b612b1)
+
 
 #### - One-to-one relationships
-![[1714004098818.png]]
+![1714004098818](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/ba26ec93-082c-4383-83ff-b3570cf7614f)
+
 
 #### - Many-to-many relationships
-![[1714004185583.png]]
+![1714004185583](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/b27d285d-2861-4272-a421-3f0432eaff2c)
+
 
 ### Multiple joins
 
@@ -396,7 +408,8 @@ ON left_table.id1 = right_table.id1
 
 ## LEFT and RIGHT JOINs
 #### - Left join will return all records in the left table, and those records in the right table that match on the joining field provided
-![[1714095063194.png]]
+![1714095063194](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/f84f0bae-666f-4aaf-9173-88710af7e126)
+
 
 ```
 -- LEFT JOIN can also be written as LEFT OUTER JOIN
@@ -408,7 +421,8 @@ USING(id)
 ```
 
 #### - Right join is less common than left join
-![[1714181895593.png]]
+![1714181895593](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/4d5c1dd6-bc77-4b12-9113-dc46a6d761c0)
+
 
 ```
 -- RIGHT JOIN can also be written as RIGHT OUTER JOIN
@@ -420,7 +434,8 @@ ON right_table.id = left_table.id
 ```
 
 ## Full join
-![[1714183543937.png]]
+![1714183543937](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/09c36c58-6e6b-4944-821c-018b3e27fadf)
+
 
 ```
 -- Order matters
@@ -435,7 +450,8 @@ USING (id);
 ```
 
 #### - CROSS JOIN (creates all possible combinations of two tables)
-![[1714184491653.png]]
+![1714184491653](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/104054ad-21f8-45bb-8f93-6f11e3df7ba6)
+
 ```
 SELECT id1, id2
 FROM table1
@@ -444,7 +460,8 @@ CROSS JOIN table2;
 
 #### - Self JOIN
 -- Input table
-![[1714186225726.png]]
+![1714186225726](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/5448fbae-a7a5-42f8-a4bf-a540a1f9ac6e)
+
 
 ```
 SELECT p1.country AS country1, 
@@ -456,7 +473,8 @@ ON p1.continent = p2.continent
 LIMIT 10;
 ```
 -- output
-![[1714186299054.png]]
+![1714186299054](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/7177e473-ec87-4cda-a883-b5dcc4273bd4)
+
 
 -- remove the same country 
 ```
@@ -470,7 +488,8 @@ ON p1.continent = p2.continent
 ```
 
 -- output 
-![[1714186388068.png]]
+![1714186388068](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/cabee08c-aee0-41d9-b1fb-462596e9c565)
+
 
 
 ## Set theory for SQL Joins
@@ -478,7 +497,7 @@ ON p1.continent = p2.continent
 #### - UNION diagram -- same number of _fields_
 * UNION takes two tables as input, and returns all records from both tables
 
-![[1714245738820.png]]
+![1714245738820](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/29256eaa-c235-42c8-be72-9ee59167892f)
 
 ```
 SELECT * 
@@ -489,7 +508,8 @@ FROM right_table;
 ```
 
 * UNION ALL takes two tables and returns all records from both tables, including duplicates
-![[1714245984300.png]]
+![1714245984300](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/a4b39e6f-b0e4-42c9-b7b9-e359118bd747)
+
 ```
 SELECT *
 FROM left_table
@@ -499,7 +519,8 @@ FROM right_table;
 ```
 
 #### - INTERSECT DIAGRAM
-![[1714246660107.png]]
+![1714246660107](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/aa599ff0-cc32-4b12-b614-48d907b37918)
+
 
 ```
 SELECT *
@@ -510,10 +531,12 @@ FROM right_table;
 ```
 
 Comparsion between INTERSECT and INNER JOIN
-![[1714247195887.png]]
+![1714247195887](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/da885a25-db26-469e-9efb-debe983c4a4d)
+
 
 #### - EXCEPT
-![[1714247671211.png]]
+![1714247671211](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/3afbc478-5252-499a-9a10-6733f6fba6db)
+
 
 ```
 SELECT *
@@ -526,7 +549,8 @@ FROM right_table;
 ## Subquerying with semi joins and anti joins
 
 #### - Semi join
-![[1714248086108.png]]
+![1714248086108](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/a8c78388-4e61-4a14-ba19-9aed3b781f13)
+
 
 ```
 SELECT col1 
@@ -538,7 +562,8 @@ WHERE col1 IN
 ```
 
 #### - Anti join (useful for identifying whether an incorrect number of records appears in a join)
-![[1714248184319.png]]
+![1714248184319](https://github.com/Alvis-Jiang/Notes-of-Python-ML-and-AI/assets/64271338/00e9be3b-f79d-432d-97b6-84fa6deae590)
+
 
 ```
 SELECT col1 
